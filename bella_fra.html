@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bella Fra! – Oratorio Estivo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --bg: #F9FAFB;
+    --surface: #ffffff;
+    --border: #E5E7EB;
+    --text: #111827;
+    --text-muted: #6B7280;
+    --text-light: #9CA3AF;
+    --accent: #2563EB;
+    --accent-light: #EFF6FF;
+    --accent-mid: #BFDBFE;
+    --green: #059669;
+    --green-light: #ECFDF5;
+    --orange: #D97706;
+    --orange-light: #FFFBEB;
+    --purple: #7C3AED;
+    --purple-light: #F5F3FF;
+    --pink: #DB2777;
+    --pink-light: #FDF2F8;
+    --radius: 14px;
+    --radius-sm: 8px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.06);
+    --shadow-hover: 0 4px 12px rgba(0,0,0,0.1), 0 8px 32px rgba(0,0,0,0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ---- HEADER ---- */
+  .site-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 1.5rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .logo {
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: var(--text);
+    line-height: 1;
+  }
+  .logo span {
+    background: linear-gradient(135deg, var(--accent), #7C3AED);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header-meta {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* ---- LAYOUT ---- */
+  .app-layout {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  /* ---- FILTERS ---- */
+  .filters-bar {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  .filter-group { display: flex; flex-direction: column; gap: 0.3rem; }
+  .filter-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .filter-select {
+    appearance: none;
+    background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 0.75rem center;
+    border: 1.5px solid var(--border);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.55rem 2.2rem 0.55rem 0.9rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    min-width: 180px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .filter-select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.12); }
+
+  .btn-go {
+    background: var(--accent);
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 0.58rem 1.3rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+    white-space: nowrap;
+  }
+  .btn-go:hover { background: #1D4ED8; transform: translateY(-1px); }
+
+  /* ---- WEEK SECTION ---- */
+  .week-block { margin-bottom: 2rem; }
+  .week-label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.85rem;
+  }
+  .week-pill {
+    background: var(--text);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+  }
+  .week-title-text {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+
+  /* ---- DAY CARDS GRID ---- */
+  .days-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .day-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem 1rem 1rem;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    animation: cardIn 0.35s ease both;
+  }
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .day-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent-mid);
+  }
+  .day-card.active {
+    border-color: var(--accent);
+    background: var(--accent-light);
+  }
+  .day-card.active .day-number { color: var(--accent); }
+
+  .day-card-accent-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+
+  .day-number {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 0.35rem;
+  }
+  .day-keyword {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+  .day-cast-badge {
+    margin-top: 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+
+  /* ---- DETAIL PANEL ---- */
+  .detail-panel {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    animation: panelIn 0.28s ease both;
+  }
+  @keyframes panelIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .detail-header {
+    padding: 1.6rem 1.8rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .detail-week-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+    margin-bottom: 0.6rem;
+  }
+  .detail-keyword {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    line-height: 1;
+  }
+  .detail-day-info {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-top: 0.35rem;
+  }
+
+  .detail-body {
+    padding: 1.5rem 1.8rem;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media(max-width: 640px) { .detail-body { grid-template-columns: 1fr; } }
+
+  .detail-section { }
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-icon {
+    width: 24px; height: 24px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  /* Action Buttons */
+  .action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.6rem 1.1rem;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+  .btn-scene {
+    background: var(--accent-light);
+    color: var(--accent);
+    border: 1.5px solid var(--accent-mid);
+  }
+  .btn-scene:hover { background: var(--accent); color: white; }
+
+  .btn-prayer {
+    background: var(--purple-light);
+    color: var(--purple);
+    border: 1.5px solid #DDD6FE;
+  }
+  .btn-prayer:hover { background: var(--purple); color: white; }
+
+  .btn-games {
+    background: var(--green-light);
+    color: var(--green);
+    border: 1.5px solid #A7F3D0;
+  }
+  .btn-games:hover { background: var(--green); color: white; }
+
+  /* Cast list */
+  .cast-list { list-style: none; }
+  .cast-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.42rem 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+    border-bottom: 1px solid #F3F4F6;
+  }
+  .cast-item:last-child { border-bottom: none; }
+  .cast-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* Actors table — full width */
+  .actors-full { grid-column: 1 / -1; }
+  .actors-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  .actors-table th {
+    background: #F9FAFB;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 0.6rem 0.9rem;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+  }
+  .actors-table td {
+    padding: 0.45rem 0.9rem;
+    border-bottom: 1px solid #F3F4F6;
+    vertical-align: middle;
+  }
+  .actors-table tr:last-child td { border-bottom: none; }
+  .actors-table tr:hover td { background: #F9FAFB; }
+  .char-name {
+    font-weight: 500;
+    color: var(--text);
+  }
+  .actor-input {
+    width: 100%;
+    border: 1.5px solid transparent;
+    background: transparent;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: var(--text);
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .actor-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: var(--accent-light);
+  }
+  .actor-input::placeholder { color: var(--text-light); }
+
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: var(--text);
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.75rem 1.2rem;
+    border-radius: var(--radius-sm);
+    z-index: 999;
+    animation: toastIn 0.25s ease, toastOut 0.3s ease 2.7s forwards;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  }
+  @keyframes toastIn { from { opacity:0; transform: translateY(12px); } to { opacity:1; transform: translateY(0); } }
+  @keyframes toastOut { to { opacity:0; transform: translateY(8px); } }
+
+  /* Week color accents */
+  .acc-1 { background: linear-gradient(90deg, #2563EB, #7C3AED); }
+  .acc-2 { background: linear-gradient(90deg, #059669, #0891B2); }
+  .acc-3 { background: linear-gradient(90deg, #D97706, #DC2626); }
+  .acc-4 { background: linear-gradient(90deg, #7C3AED, #DB2777); }
+
+  .sec-icon-1 { background: var(--accent-light); }
+  .sec-icon-2 { background: var(--purple-light); }
+  .sec-icon-3 { background: var(--green-light); }
+
+  @media(max-width: 500px) {
+    .days-grid { grid-template-columns: repeat(2, 1fr); }
+    .filters-bar { flex-direction: column; align-items: stretch; }
+    .filter-select { min-width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="logo">BELLA <span>FRA!</span></div>
+  <div class="header-meta">Oratorio Estivo · Gestione</div>
+</header>
+
+<!-- MAIN APP -->
+<div class="app-layout">
+
+  <!-- FILTERS -->
+  <div class="filters-bar" id="filters-bar">
+    <div class="filter-group">
+      <span class="filter-label">Settimana</span>
+      <select class="filter-select" id="sel-week">
+        <option value="">Tutte le settimane</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Giorno</span>
+      <select class="filter-select" id="sel-day">
+        <option value="">Tutti i giorni</option>
+      </select>
+    </div>
+    <div style="padding-bottom:1px">
+      <button class="btn-go" onclick="applyFilter()">→ Vai</button>
+    </div>
+  </div>
+
+  <!-- DETAIL PANEL (hidden initially) -->
+  <div id="detail-area"></div>
+
+  <!-- CALENDAR -->
+  <div id="calendar-area"></div>
+
+</div>
+
+<script>
+// =====================================================
+// DATABASE
+// =====================================================
+const DATABASE_ORATORIO = [
+  {
+    settimana: 1, titolo: "Conversione",
+    giorni: [
+      { n: 1, parola: "CHIAMATA", cast: ["Francesco", "Massimiliano"], link_scenetta: "https://docs.google.com/document/d/1jYbl7Fq3EhqpPi1xK2zT2iQMuNjreMbisqItf4UhfDg/edit?usp=sharing", link_preghiera: "#", link_giochi: "#" },
+      { n: 2, parola: "RESTITUZIONE", cast: ["Francesco", "Massimiliano", "Agnese", "Angela"], link_scenetta: "https://docs.google.com/document/d/1N3FwP-AT_d213oz5uxL2BB0peckFEbecq9Zd0HEuTPo/edit?usp=sharing", link_preghiera: "#", link_giochi: "#" },
+      { n: 3, parola: "SGUARDO", cast: ["Francesco", "Massimiliano", "Agnese", "Angela", "Uomo nel vicolo"], link_scenetta: "https://docs.google.com/document/d/1Z2av5wC2qVI-GY6g-CLCG5aYSSh0bfHHCxpfMjKuuvc/edit?usp=sharing", link_preghiera: "#", link_giochi: "#" }
+    ]
+  },
+  {
+    settimana: 2, titolo: "Fraternità",
+    giorni: [
+      { n: 1, parola: "ESEMPIO", cast: ["Massimiliano", "Agnese", "Angela", "Bernardo"], link_scenetta: "https://docs.google.com/document/d/1-RZi9Ko876wjyzKeelS1-HnOauCZUjnVSU6llDYGHgA/edit?usp=sharing", link_preghiera: "#", link_giochi: "#" },
+      { n: 2, parola: "FRATELLO", cast: ["Massimiliano", "Agnese", "Angela", "Frate Leone"], link_scenetta: "#", link_preghiera: "#", link_giochi: "#" },
+      { n: 3, parola: "CORAGGIO", cast: ["Massimiliano", "Agnese", "Angela", "Chiara"], link_scenetta: "#", link_preghiera: "#", link_giochi: "#" },
+      { n: 4, parola: "MISERICORDIA", cast: ["Massimiliano", "Agnese", "Angela", "Cantastorie"], link_scenetta: "#", link_preghiera: "#", link_giochi: "#" },
+      { n: 5, parola: "POVERTÀ / UMILTÀ", cast: ["Massimiliano", "Agnese", "Angela", "Cantastorie"], link_scenetta: "#", link_preghiera: "#", link_giochi: "#" }
+    ]
+  },
+  {
+    settimana: 3, titolo: "Missione",
+    giorni: [
+      { n: 1, parola: "OBBEDIENZA", cast: ["Massimiliano", "Agnese", "Angela", "Cantastorie"], link_scenetta: "https://docs.google.com/document/d/1j_uWpYgkoRWikB6avai0g2mzqzpulhKEVnuj16e_yjI/edit?usp=sharing", link_preghiera: "#", link_giochi: "#" },
+      { n: 2, parola: "PACE E BENE", cast: ["Massimiliano", "Agnese", "Angela"], link_scenetta: "https://docs.google.com/document/d/1KiTnxyF0xMB3goQd1WThzCITEU_JIUpO6cGHSjwvPG0/edit?usp=sharing", link_preghiera: "#", link_giochi: "#" },
+      { n: 3, parola: "INCONTRO", cast: ["Massimiliano", "Agnese", "Angela"], link_scenetta: "https://docs.google.com/document/d/1wc8aiWxiHNAm6VABaIDBVDDFcTMW4EvX-5zbcHn3gmE/edit?usp=sharing", link_preghiera: "#", link_giochi: "#" },
+      { n: 4, parola: "CREATO / MONDO", cast: ["Massimiliano", "Agnese", "Angela"], link_scenetta: "https://docs.google.com/document/d/1ZoRev9U3s2P0ZkmMPmCOidr1hCrVTka2v2Kyv0kuWl4/edit?usp=sharing", link_preghiera: "#", link_giochi: "#" },
+      { n: 5, parola: "LASCIARE", cast: ["Massimiliano", "Agnese", "Angela", "Fedeli"], link_scenetta: "https://docs.google.com/document/d/1WM_PDHgfIKYgTRE5EjREI5B_MXz6BkoX8jbUnq0glg0/edit?usp=sharing", link_preghiera: "#", link_giochi: "#" }
+    ]
+  },
+  {
+    settimana: 4, titolo: "Fatica / Lode",
+    giorni: [
+      { n: 1, parola: "SOPPORTARE", cast: ["Nonni", "Nipoti"], link_scenetta: "https://docs.google.com/document/d/1GtDOP_hn0NcvnczE_fSq6s6R6YhE1HmruZ5wCZ-GzLc/edit?usp=sharing", link_preghiera: "#", link_giochi: "#" },
+      { n: 2, parola: "TENTAZIONE", cast: ["Nonni", "Nipoti"], link_scenetta: "https://docs.google.com/document/d/1GtDOP_hn0NcvnczE_fSq6s6R6YhE1HmruZ5wCZ-GzLc/edit?usp=sharing", link_preghiera: "#", link_giochi: "#" },
+      { n: 3, parola: "STARE", cast: ["Nonni", "Nipoti"], link_scenetta: "https://docs.google.com/document/d/1GL5uklpo88IvhLpU1Q8cvgxdOlf3OhmHyyPS3Meq61U/edit?usp=sharing", link_preghiera: "#", link_giochi: "#" },
+      { n: 4, parola: "BENEDIRE", cast: ["Nonni", "Nipoti"], link_scenetta: "https://docs.google.com/document/d/1r_T003kqbuWYItVI6iA5EZIqAdlbcNnkPhYaeuYwrrU/edit?usp=sharing", link_preghiera: "#", link_giochi: "#" },
+      { n: 5, parola: "PASSAGGIO / AMORE", cast: ["Nonni", "Nipoti", "Cantastorie"], link_scenetta: "https://docs.google.com/document/d/1hm_qFP9u8B9foerR-i7-m2QOMziM3Q53YQPLfbQ__0U/edit?usp=sharing", link_preghiera: "#", link_giochi: "#" }
+    ]
+  }
+];
+
+// =====================================================
+// STATE
+// =====================================================
+let activeWeekNum = null;
+let activeDayNum = null;
+let actorNames = {}; // [settimana][giorno][personaggio]
+
+// =====================================================
+// INIT
+// =====================================================
+document.addEventListener('DOMContentLoaded', () => {
+  buildSelects();
+  renderCalendar();
+});
+
+function buildSelects() {
+  const selW = document.getElementById('sel-week');
+  DATABASE_ORATORIO.forEach(s => {
+    const o = document.createElement('option');
+    o.value = s.settimana;
+    o.textContent = `Settimana ${s.settimana} – ${s.titolo}`;
+    selW.appendChild(o);
+  });
+  selW.addEventListener('change', () => {
+    const wk = Number(selW.value);
+    const selD = document.getElementById('sel-day');
+    selD.innerHTML = '<option value="">Tutti i giorni</option>';
+    if (!wk) return;
+    const week = DATABASE_ORATORIO.find(s => s.settimana === wk);
+    week.giorni.forEach(g => {
+      const o = document.createElement('option');
+      o.value = g.n;
+      o.textContent = `Giorno ${g.n} – ${g.parola}`;
+      selD.appendChild(o);
+    });
+  });
+}
+
+function applyFilter() {
+  const wk = Number(document.getElementById('sel-week').value);
+  const dy = Number(document.getElementById('sel-day').value);
+  if (wk && dy) selectDay(wk, dy);
+  else if (wk) {
+    // scroll to week
+    const el = document.getElementById(`week-${wk}`);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+// =====================================================
+// CALENDAR
+// =====================================================
+const WEEK_COLORS = ['acc-1', 'acc-2', 'acc-3', 'acc-4'];
+
+function renderCalendar() {
+  const area = document.getElementById('calendar-area');
+  area.innerHTML = '';
+
+  DATABASE_ORATORIO.forEach((week, wi) => {
+    const wb = document.createElement('div');
+    wb.className = 'week-block';
+    wb.id = `week-${week.settimana}`;
+
+    wb.innerHTML = `
+      <div class="week-label">
+        <span class="week-pill">Settimana ${week.settimana}</span>
+        <span class="week-title-text">${week.titolo}</span>
+      </div>
+    `;
+
+    const grid = document.createElement('div');
+    grid.className = 'days-grid';
+
+    week.giorni.forEach((giorno, gi) => {
+      const card = document.createElement('div');
+      card.className = 'day-card';
+      card.id = `card-${week.settimana}-${giorno.n}`;
+      card.style.animationDelay = `${(wi * 5 + gi) * 0.04}s`;
+      card.innerHTML = `
+        <div class="day-card-accent-bar ${WEEK_COLORS[wi]}"></div>
+        <div class="day-number">Giorno ${giorno.n}</div>
+        <div class="day-keyword">${giorno.parola}</div>
+        <div class="day-cast-badge">👤 ${giorno.cast.length} pers.</div>
+      `;
+      card.addEventListener('click', () => selectDay(week.settimana, giorno.n));
+      grid.appendChild(card);
+    });
+
+    wb.appendChild(grid);
+    area.appendChild(wb);
+  });
+}
+
+// =====================================================
+// SELECT + RENDER DETAIL
+// =====================================================
+function selectDay(weekNum, dayNum) {
+  // Deactivate old
+  if (activeWeekNum && activeDayNum) {
+    const old = document.getElementById(`card-${activeWeekNum}-${activeDayNum}`);
+    if (old) old.classList.remove('active');
+  }
+  activeWeekNum = weekNum;
+  activeDayNum = dayNum;
+
+  const card = document.getElementById(`card-${weekNum}-${dayNum}`);
+  if (card) card.classList.add('active');
+
+  renderDetail(weekNum, dayNum);
+
+  setTimeout(() => {
+    document.getElementById('detail-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 60);
+}
+
+function renderDetail(weekNum, dayNum) {
+  const week = DATABASE_ORATORIO.find(s => s.settimana === weekNum);
+  const giorno = week?.giorni.find(g => g.n === dayNum);
+  if (!giorno) return;
+
+  const wi = weekNum - 1;
+
+  const area = document.getElementById('detail-area');
+  area.innerHTML = '';
+
+  const panel = document.createElement('div');
+  panel.className = 'detail-panel';
+
+  panel.innerHTML = `
+    <div class="detail-header">
+      <div>
+        <div class="detail-week-chip">
+          ✦ Settimana ${week.settimana} · ${week.titolo}
+        </div>
+        <div class="detail-keyword">${giorno.parola}</div>
+        <div class="detail-day-info">Giorno ${giorno.n} · ${giorno.cast.length} personaggi in scena</div>
+      </div>
+    </div>
+    <div class="detail-body">
+      ${renderScenetteSection(giorno)}
+      ${renderCastSection(giorno)}
+      ${renderActorsSection(week, giorno)}
+    </div>
+  `;
+
+  area.appendChild(panel);
+}
+
+function renderScenetteSection(giorno) {
+  function makeBtn(href, cls, icon, label) {
+    if (href === '#') {
+      return `<button class="action-btn ${cls}" onclick="showToast('⏳ Contenuto in arrivo!')">
+        ${icon} ${label}
+      </button>`;
+    }
+    return `<a href="${href}" target="_blank" rel="noopener" class="action-btn ${cls}">
+      ${icon} ${label}
+    </a>`;
+  }
+
+  return `
+    <div class="detail-section">
+      <div class="section-title">
+        <span class="section-icon sec-icon-1">🎭</span>
+        Scenetta
+      </div>
+      ${makeBtn(giorno.link_scenetta, 'btn-scene', '📄', 'Apri Copione')}
+      <div class="section-title" style="margin-top:1rem">
+        <span class="section-icon sec-icon-2">🙏</span>
+        Preghiera
+      </div>
+      ${makeBtn(giorno.link_preghiera, 'btn-prayer', '📖', 'Apri Preghiera del Giorno')}
+      <div class="section-title" style="margin-top:1rem">
+        <span class="section-icon sec-icon-3">⚽</span>
+        Giochi
+      </div>
+      ${makeBtn(giorno.link_giochi, 'btn-games', '🗂️', 'Apri Spiegazione Giochi')}
+    </div>
+  `;
+}
+
+function renderCastSection(giorno) {
+  const items = giorno.cast.map(c =>
+    `<li class="cast-item"><span class="cast-dot"></span>${c}</li>`
+  ).join('');
+  return `
+    <div class="detail-section">
+      <div class="section-title">
+        <span class="section-icon" style="background:#FEF3C7">👥</span>
+        Cast in Scena
+      </div>
+      <ul class="cast-list">${items}</ul>
+    </div>
+  `;
+}
+
+function renderActorsSection(week, giorno) {
+  if (!actorNames[week.settimana]) actorNames[week.settimana] = {};
+  if (!actorNames[week.settimana][giorno.n]) actorNames[week.settimana][giorno.n] = {};
+
+  const rows = giorno.cast.map(p => {
+    const stored = actorNames[week.settimana][giorno.n][p] || '';
+    const id = `ainp-${week.settimana}-${giorno.n}-${p.replace(/[^a-zA-Z0-9]/g,'_')}`;
+    return `<tr>
+      <td class="char-name">${p}</td>
+      <td><input type="text" class="actor-input" id="${id}"
+        value="${stored}"
+        placeholder="Nome ragazzo/a…"
+        data-w="${week.settimana}" data-d="${giorno.n}" data-p="${p.replace(/"/g,'&quot;')}"
+        oninput="saveActor(this)"
+      /></td>
+    </tr>`;
+  }).join('');
+
+  return `
+    <div class="detail-section actors-full">
+      <div class="section-title">
+        <span class="section-icon" style="background:#F0FDF4">📝</span>
+        Assegnazione Attori
+      </div>
+      <table class="actors-table">
+        <thead><tr><th>Personaggio</th><th>Ragazzo / Ragazza</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  `;
+}
+
+function saveActor(input) {
+  const w = Number(input.dataset.w);
+  const d = Number(input.dataset.d);
+  const p = input.dataset.p;
+  if (!actorNames[w]) actorNames[w] = {};
+  if (!actorNames[w][d]) actorNames[w][d] = {};
+  actorNames[w][d][p] = input.value;
+}
+
+// =====================================================
+// TOAST
+// =====================================================
+function showToast(msg) {
+  const existing = document.querySelector('.toast');
+  if (existing) existing.remove();
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 3200);
+}
+</script>
+</body>
+</html>
