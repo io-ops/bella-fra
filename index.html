@@ -322,12 +322,12 @@
   }
   .btn-scene:hover { background: var(--accent); color: white; }
 
-  .btn-prayer {
-    background: var(--purple-light);
-    color: var(--purple);
-    border: 1.5px solid #DDD6FE;
+  .btn-scenografia {
+    background: var(--orange-light);
+    color: var(--orange);
+    border: 1.5px solid #FDE68A;
   }
-  .btn-prayer:hover { background: var(--purple); color: white; }
+  .btn-scenografia:hover { background: var(--orange); color: white; }
 
   .btn-games {
     background: var(--green-light);
@@ -447,7 +447,15 @@
 <!-- HEADER -->
 <header class="site-header">
   <div class="logo">BELLA <span>FRA!</span></div>
-  <div class="header-meta">Oratorio Estivo · Gestione</div>
+  <div style="display:flex;align-items:center;gap:0.75rem;">
+    <a href="https://docs.google.com/spreadsheets/d/1u5DsxW7XZ4N8wI3oYDGnqXiHbKsEKLYwjFxMsRT6qwo/edit?usp=sharing"
+       target="_blank" rel="noopener"
+       style="display:inline-flex;align-items:center;gap:0.4rem;background:#2563EB;color:white;font-family:'Outfit',sans-serif;font-size:0.82rem;font-weight:700;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;white-space:nowrap;box-shadow:0 2px 8px rgba(37,99,235,0.3);transition:background 0.15s;"
+       onmouseover="this.style.background='#1D4ED8'" onmouseout="this.style.background='#2563EB'">
+      📊 Registro Presenze
+    </a>
+    <div class="header-meta">Oratorio Estivo · Gestione</div>
+  </div>
 </header>
 
 <!-- MAIN APP -->
@@ -472,6 +480,22 @@
     </div>
   </div>
 
+  <!-- ARCHIVIO ANNI PRECEDENTI -->
+  <div style="margin-bottom:1.5rem;">
+    <a href="#"
+       style="display:flex;align-items:center;gap:0.9rem;background:#ffffff;border:1.5px solid #E5E7EB;border-radius:12px;padding:1rem 1.3rem;text-decoration:none;box-shadow:0 1px 3px rgba(0,0,0,0.07),0 4px 16px rgba(0,0,0,0.06);transition:box-shadow 0.18s,border-color 0.18s;"
+       onmouseover="this.style.borderColor='#BFDBFE';this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1),0 8px 32px rgba(0,0,0,0.08)'"
+       onmouseout="this.style.borderColor='#E5E7EB';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.07),0 4px 16px rgba(0,0,0,0.06)'"
+       title="Cartella Drive anni precedenti (link in arrivo)">
+      <span style="font-size:1.6rem;line-height:1;">📂</span>
+      <div>
+        <div style="font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#6B7280;margin-bottom:0.15rem;">Archivio</div>
+        <div style="font-size:0.97rem;font-weight:700;color:#111827;letter-spacing:-0.01em;">Anni Precedenti</div>
+      </div>
+      <span style="margin-left:auto;color:#9CA3AF;font-size:1rem;">→</span>
+    </a>
+  </div>
+
   <!-- DETAIL PANEL (hidden initially) -->
   <div id="detail-area"></div>
 
@@ -488,39 +512,39 @@ const DATABASE_ORATORIO = [
   {
     settimana: 1, titolo: "Conversione",
     giorni: [
-      { n: 1, parola: "CHIAMATA", cast: ["Francesco", "Massimiliano", "Agnese"], link_scenetta: "https://docs.google.com/document/d/1jYbl7Fq3EhqpPi1xK2zT2iQMuNjreMbisqItf4UhfDg/edit?usp=sharing", link_preghiera: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.wl091jqm5gj3" },
-      { n: 2, parola: "RESTITUZIONE", cast: ["Francesco", "Massimiliano", "Agnese", "Angela"], link_scenetta: "https://docs.google.com/document/d/1N3FwP-AT_d213oz5uxL2BB0peckFEbecq9Zd0HEuTPo/edit?usp=sharing", link_preghiera: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.doc1cw74610x" },
-      { n: 3, parola: "SGUARDO", cast: ["Francesco", "Massimiliano", "Agnese", "Angela", "Uomo nel vicolo"], link_scenetta: "https://docs.google.com/document/d/1Z2av5wC2qVI-GY6g-CLCG5aYSSh0bfHHCxpfMjKuuvc/edit?usp=sharing", link_preghiera: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.4hniegnxbuz0" }
+      { n: 1, parola: "CHIAMATA", cast: ["Francesco", "Massimiliano", "Agnese"], link_scenetta: "https://docs.google.com/document/d/1jYbl7Fq3EhqpPi1xK2zT2iQMuNjreMbisqItf4UhfDg/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.wl091jqm5gj3" },
+      { n: 2, parola: "RESTITUZIONE", cast: ["Francesco", "Massimiliano", "Agnese", "Angela"], link_scenetta: "https://docs.google.com/document/d/1N3FwP-AT_d213oz5uxL2BB0peckFEbecq9Zd0HEuTPo/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.doc1cw74610x" },
+      { n: 3, parola: "SGUARDO", cast: ["Francesco", "Massimiliano", "Agnese", "Angela", "Uomo nel vicolo"], link_scenetta: "https://docs.google.com/document/d/1Z2av5wC2qVI-GY6g-CLCG5aYSSh0bfHHCxpfMjKuuvc/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.4hniegnxbuz0" }
     ]
   },
   {
     settimana: 2, titolo: "Fraternità",
     giorni: [
-      { n: 1, parola: "ESEMPIO", cast: ["Massimiliano", "Agnese", "Angela", "Bernardo"], link_scenetta: "https://docs.google.com/document/d/1-RZi9Ko876wjyzKeelS1-HnOauCZUjnVSU6llDYGHgA/edit?usp=sharing", link_preghiera: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.4gwjh98vw0a1" },
-      { n: 2, parola: "FRATELLO", cast: ["Massimiliano", "Agnese", "Angela", "Frate Leone"], link_scenetta: "https://docs.google.com/document/d/1-XVpQMLm4XDWYi38ZxmT3W9H4CTA_JBpNWMRRbjze-A/edit?usp=sharing", link_preghiera: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.u7mft627w1cg" },
-      { n: 3, parola: "CORAGGIO", cast: ["Massimiliano", "Agnese", "Angela", "Chiara"], link_scenetta: "https://docs.google.com/document/d/11tYl5zoZVsaTBnddqJ0nqP8vOFrwbihwkz-KttnuAQA/edit?usp=sharing", link_preghiera: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.2944am1arkk6" },
-      { n: 4, parola: "MISERICORDIA", cast: ["Massimiliano", "Agnese", "Angela", "Cantastorie"], link_scenetta: "https://docs.google.com/document/d/12vWnrqOAtAWKGQHHZ07szYolW4PdQodjPd70pe45-co/edit?usp=sharing", link_preghiera: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.sk95dvagtesr" },
-      { n: 5, parola: "POVERTÀ / UMILTÀ", cast: ["Massimiliano", "Agnese", "Angela", "Cantastorie"], link_scenetta: "https://docs.google.com/document/d/13Hj3bTeqaJDWcOYEaIVGr1nduKVmRX5LWPwCCjynIZs/edit?usp=sharing", link_preghiera: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.ezf7asg7k09a" }
+      { n: 1, parola: "ESEMPIO", cast: ["Massimiliano", "Agnese", "Angela", "Bernardo"], link_scenetta: "https://docs.google.com/document/d/1-RZi9Ko876wjyzKeelS1-HnOauCZUjnVSU6llDYGHgA/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.4gwjh98vw0a1" },
+      { n: 2, parola: "FRATELLO", cast: ["Massimiliano", "Agnese", "Angela", "Frate Leone"], link_scenetta: "https://docs.google.com/document/d/1-XVpQMLm4XDWYi38ZxmT3W9H4CTA_JBpNWMRRbjze-A/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.u7mft627w1cg" },
+      { n: 3, parola: "CORAGGIO", cast: ["Massimiliano", "Agnese", "Angela", "Chiara"], link_scenetta: "https://docs.google.com/document/d/11tYl5zoZVsaTBnddqJ0nqP8vOFrwbihwkz-KttnuAQA/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.2944am1arkk6" },
+      { n: 4, parola: "MISERICORDIA", cast: ["Massimiliano", "Agnese", "Angela", "Cantastorie"], link_scenetta: "#", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.sk95dvagtesr" },
+      { n: 5, parola: "POVERTÀ / UMILTÀ", cast: ["Massimiliano", "Agnese", "Angela", "Cantastorie"], link_scenetta: "#", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.ezf7asg7k09a" }
     ]
   },
   {
     settimana: 3, titolo: "Missione",
     giorni: [
-      { n: 1, parola: "OBBEDIENZA", cast: ["Massimiliano", "Agnese", "Angela", "Cantastorie"], link_scenetta: "https://docs.google.com/document/d/1j_uWpYgkoRWikB6avai0g2mzqzpulhKEVnuj16e_yjI/edit?usp=sharing", link_preghiera: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.b2p4cqgvqsuj" },
-      { n: 2, parola: "PACE E BENE", cast: ["Massimiliano", "Agnese", "Angela"], link_scenetta: "https://docs.google.com/document/d/1KiTnxyF0xMB3goQd1WThzCITEU_JIUpO6cGHSjwvPG0/edit?usp=sharing", link_preghiera: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.em757rqw7hhu" },
-      { n: 3, parola: "INCONTRO", cast: ["Massimiliano", "Agnese", "Angela"], link_scenetta: "https://docs.google.com/document/d/1wc8aiWxiHNAm6VABaIDBVDDFcTMW4EvX-5zbcHn3gmE/edit?usp=sharing", link_preghiera: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.4mx1im5uh6fw" },
-      { n: 4, parola: "CREATO / MONDO", cast: ["Massimiliano", "Agnese", "Angela"], link_scenetta: "https://docs.google.com/document/d/1ZoRev9U3s2P0ZkmMPmCOidr1hCrVTka2v2Kyv0kuWl4/edit?usp=sharing", link_preghiera: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.4rixbtitmi6r" },
-      { n: 5, parola: "LASCIARE", cast: ["Massimiliano", "Agnese", "Angela", "Fedeli"], link_scenetta: "https://docs.google.com/document/d/1WM_PDHgfIKYgTRE5EjREI5B_MXz6BkoX8jbUnq0glg0/edit?usp=sharing", link_preghiera: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.a9ftba3xtayr" }
+      { n: 1, parola: "OBBEDIENZA", cast: ["Massimiliano", "Agnese", "Angela", "Cantastorie"], link_scenetta: "https://docs.google.com/document/d/1j_uWpYgkoRWikB6avai0g2mzqzpulhKEVnuj16e_yjI/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.b2p4cqgvqsuj" },
+      { n: 2, parola: "PACE E BENE", cast: ["Massimiliano", "Agnese", "Angela"], link_scenetta: "https://docs.google.com/document/d/1KiTnxyF0xMB3goQd1WThzCITEU_JIUpO6cGHSjwvPG0/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.em757rqw7hhu" },
+      { n: 3, parola: "INCONTRO", cast: ["Massimiliano", "Agnese", "Angela"], link_scenetta: "https://docs.google.com/document/d/1wc8aiWxiHNAm6VABaIDBVDDFcTMW4EvX-5zbcHn3gmE/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.4mx1im5uh6fw" },
+      { n: 4, parola: "CREATO / MONDO", cast: ["Massimiliano", "Agnese", "Angela"], link_scenetta: "https://docs.google.com/document/d/1ZoRev9U3s2P0ZkmMPmCOidr1hCrVTka2v2Kyv0kuWl4/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.4rixbtitmi6r" },
+      { n: 5, parola: "LASCIARE", cast: ["Massimiliano", "Agnese", "Angela", "Fedeli"], link_scenetta: "https://docs.google.com/document/d/1WM_PDHgfIKYgTRE5EjREI5B_MXz6BkoX8jbUnq0glg0/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.a9ftba3xtayr" }
     ]
   },
   {
     settimana: 4, titolo: "Fatica / Lode",
     giorni: [
-      { n: 1, parola: "SOPPORTARE", cast: ["Nonni", "Nipoti"], link_scenetta: "https://docs.google.com/document/d/1GtDOP_hn0NcvnczE_fSq6s6R6YhE1HmruZ5wCZ-GzLc/edit?usp=sharing", link_preghiera: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.rvhnj2k1algf" },
-      { n: 2, parola: "TENTAZIONE", cast: ["Nonni", "Nipoti"], link_scenetta: "https://docs.google.com/document/d/1QOzWn0L29-3MpG0aaClOqC--c_hqAsYCBGBxEMKDvus/edit?usp=drivesdk", link_preghiera: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.w45y3bvb924e" },
-      { n: 3, parola: "STARE", cast: ["Nonni", "Nipoti"], link_scenetta: "https://docs.google.com/document/d/1GL5uklpo88IvhLpU1Q8cvgxdOlf3OhmHyyPS3Meq61U/edit?usp=sharing", link_preghiera: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.bjqv05oyvgrh" },
-      { n: 4, parola: "BENEDIRE", cast: ["Nonni", "Nipoti"], link_scenetta: "https://docs.google.com/document/d/1r_T003kqbuWYItVI6iA5EZIqAdlbcNnkPhYaeuYwrrU/edit?usp=sharing", link_preghiera: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.b9nrvhr7df4" },
-      { n: 5, parola: "PASSAGGIO / AMORE", cast: ["Nonni", "Nipoti", "Cantastorie"], link_scenetta: "https://docs.google.com/document/d/1hm_qFP9u8B9foerR-i7-m2QOMziM3Q53YQPLfbQ__0U/edit?usp=sharing", link_preghiera: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.jo8y0ndlc17x" }
+      { n: 1, parola: "SOPPORTARE", cast: ["Nonni", "Nipoti"], link_scenetta: "https://docs.google.com/document/d/1GtDOP_hn0NcvnczE_fSq6s6R6YhE1HmruZ5wCZ-GzLc/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.rvhnj2k1algf" },
+      { n: 2, parola: "TENTAZIONE", cast: ["Nonni", "Nipoti"], link_scenetta: "https://docs.google.com/document/d/1GtDOP_hn0NcvnczE_fSq6s6R6YhE1HmruZ5wCZ-GzLc/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.w45y3bvb924e" },
+      { n: 3, parola: "STARE", cast: ["Nonni", "Nipoti"], link_scenetta: "https://docs.google.com/document/d/1GL5uklpo88IvhLpU1Q8cvgxdOlf3OhmHyyPS3Meq61U/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.bjqv05oyvgrh" },
+      { n: 4, parola: "BENEDIRE", cast: ["Nonni", "Nipoti"], link_scenetta: "https://docs.google.com/document/d/1r_T003kqbuWYItVI6iA5EZIqAdlbcNnkPhYaeuYwrrU/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.b9nrvhr7df4" },
+      { n: 5, parola: "PASSAGGIO / AMORE", cast: ["Nonni", "Nipoti", "Cantastorie"], link_scenetta: "https://docs.google.com/document/d/1hm_qFP9u8B9foerR-i7-m2QOMziM3Q53YQPLfbQ__0U/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.jo8y0ndlc17x" }
     ]
   }
 ];
@@ -693,10 +717,10 @@ function renderScenetteSection(giorno) {
       </div>
       ${makeBtn(giorno.link_scenetta, 'btn-scene', '📄', 'Apri Copione')}
       <div class="section-title" style="margin-top:1rem">
-        <span class="section-icon sec-icon-2">🙏</span>
-        Preghiera
+        <span class="section-icon" style="background:var(--orange-light)">🎨</span>
+        Scenografia
       </div>
-      ${makeBtn(giorno.link_preghiera, 'btn-prayer', '📖', 'Apri Preghiera del Giorno')}
+      ${makeBtn(giorno.link_scenografia, 'btn-scenografia', '🎨', 'Apri Scenografia')}
       <div class="section-title" style="margin-top:1rem">
         <span class="section-icon sec-icon-3">⚽</span>
         Giochi
