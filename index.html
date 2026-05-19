@@ -31,16 +31,16 @@
     --shadow: 0 1px 3px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.06);
     --shadow-hover: 0 4px 12px rgba(0,0,0,0.1), 0 8px 32px rgba(0,0,0,0.08);
   }
-
+ 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
   body {
     font-family: 'Outfit', sans-serif;
     background: var(--bg);
     color: var(--text);
     min-height: 100vh;
   }
-
+ 
   /* ---- HEADER ---- */
   .site-header {
     background: var(--surface);
@@ -74,14 +74,14 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
   }
-
+ 
   /* ---- LAYOUT ---- */
   .app-layout {
     max-width: 1100px;
     margin: 0 auto;
     padding: 2rem 1.5rem 4rem;
   }
-
+ 
   /* ---- FILTERS ---- */
   .filters-bar {
     display: flex;
@@ -113,7 +113,7 @@
     transition: border-color 0.15s, box-shadow 0.15s;
   }
   .filter-select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.12); }
-
+ 
   .btn-go {
     background: var(--accent);
     color: white;
@@ -128,7 +128,7 @@
     white-space: nowrap;
   }
   .btn-go:hover { background: #1D4ED8; transform: translateY(-1px); }
-
+ 
   /* ---- WEEK SECTION ---- */
   .week-block { margin-bottom: 2rem; }
   .week-label {
@@ -152,14 +152,14 @@
     font-weight: 500;
     color: var(--text-muted);
   }
-
+ 
   /* ---- DAY CARDS GRID ---- */
   .days-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 0.75rem;
   }
-
+ 
   .day-card {
     background: var(--surface);
     border: 1.5px solid var(--border);
@@ -186,14 +186,14 @@
     background: var(--accent-light);
   }
   .day-card.active .day-number { color: var(--accent); }
-
+ 
   .day-card-accent-bar {
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 3px;
     border-radius: var(--radius) var(--radius) 0 0;
   }
-
+ 
   .day-number {
     font-size: 0.65rem;
     font-weight: 700;
@@ -215,7 +215,7 @@
     font-weight: 500;
     color: var(--text-muted);
   }
-
+ 
   /* ---- DETAIL PANEL ---- */
   .detail-panel {
     background: var(--surface);
@@ -230,7 +230,7 @@
     from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
+ 
   .detail-header {
     padding: 1.6rem 1.8rem;
     border-bottom: 1px solid var(--border);
@@ -266,7 +266,7 @@
     color: var(--text-muted);
     margin-top: 0.35rem;
   }
-
+ 
   .detail-body {
     padding: 1.5rem 1.8rem;
     display: grid;
@@ -274,7 +274,7 @@
     grid-template-columns: 1fr 1fr;
   }
   @media(max-width: 640px) { .detail-body { grid-template-columns: 1fr; } }
-
+ 
   .detail-section { }
   .section-title {
     display: flex;
@@ -296,7 +296,7 @@
     font-size: 0.8rem;
     flex-shrink: 0;
   }
-
+ 
   /* Action Buttons */
   .action-btn {
     display: inline-flex;
@@ -321,21 +321,21 @@
     border: 1.5px solid var(--accent-mid);
   }
   .btn-scene:hover { background: var(--accent); color: white; }
-
+ 
   .btn-scenografia {
     background: var(--orange-light);
     color: var(--orange);
     border: 1.5px solid #FDE68A;
   }
   .btn-scenografia:hover { background: var(--orange); color: white; }
-
+ 
   .btn-games {
     background: var(--green-light);
     color: var(--green);
     border: 1.5px solid #A7F3D0;
   }
   .btn-games:hover { background: var(--green); color: white; }
-
+ 
   /* Cast list */
   .cast-list { list-style: none; }
   .cast-item {
@@ -355,55 +355,7 @@
     background: var(--accent);
     flex-shrink: 0;
   }
-
-  /* Actors table — full width */
-  .actors-full { grid-column: 1 / -1; }
-  .actors-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.88rem;
-  }
-  .actors-table th {
-    background: #F9FAFB;
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    padding: 0.6rem 0.9rem;
-    text-align: left;
-    border-bottom: 2px solid var(--border);
-  }
-  .actors-table td {
-    padding: 0.45rem 0.9rem;
-    border-bottom: 1px solid #F3F4F6;
-    vertical-align: middle;
-  }
-  .actors-table tr:last-child td { border-bottom: none; }
-  .actors-table tr:hover td { background: #F9FAFB; }
-  .char-name {
-    font-weight: 500;
-    color: var(--text);
-  }
-  .actor-input {
-    width: 100%;
-    border: 1.5px solid transparent;
-    background: transparent;
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.88rem;
-    font-weight: 400;
-    color: var(--text);
-    padding: 0.3rem 0.5rem;
-    border-radius: 6px;
-    transition: border-color 0.15s, background 0.15s;
-  }
-  .actor-input:focus {
-    outline: none;
-    border-color: var(--accent);
-    background: var(--accent-light);
-  }
-  .actor-input::placeholder { color: var(--text-light); }
-
+ 
   /* Toast */
   .toast {
     position: fixed;
@@ -424,17 +376,17 @@
   }
   @keyframes toastIn { from { opacity:0; transform: translateY(12px); } to { opacity:1; transform: translateY(0); } }
   @keyframes toastOut { to { opacity:0; transform: translateY(8px); } }
-
+ 
   /* Week color accents */
   .acc-1 { background: linear-gradient(90deg, #2563EB, #7C3AED); }
   .acc-2 { background: linear-gradient(90deg, #059669, #0891B2); }
   .acc-3 { background: linear-gradient(90deg, #D97706, #DC2626); }
   .acc-4 { background: linear-gradient(90deg, #7C3AED, #DB2777); }
-
+ 
   .sec-icon-1 { background: var(--accent-light); }
   .sec-icon-2 { background: var(--purple-light); }
   .sec-icon-3 { background: var(--green-light); }
-
+ 
   @media(max-width: 500px) {
     .days-grid { grid-template-columns: repeat(2, 1fr); }
     .filters-bar { flex-direction: column; align-items: stretch; }
@@ -443,24 +395,24 @@
 </style>
 </head>
 <body>
-
+ 
 <!-- HEADER -->
 <header class="site-header">
   <div class="logo">BELLA <span>FRA!</span></div>
   <div style="display:flex;align-items:center;gap:0.75rem;">
-    <a href="https://docs.google.com/spreadsheets/d/1u5DsxW7XZ4N8wI3oYDGnqXiHbKsEKLYwjFxMsRT6qwo/edit?usp=sharing"
-       target="_blank" rel="noopener"
-       style="display:inline-flex;align-items:center;gap:0.4rem;background:#2563EB;color:white;font-family:'Outfit',sans-serif;font-size:0.82rem;font-weight:700;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;white-space:nowrap;box-shadow:0 2px 8px rgba(37,99,235,0.3);transition:background 0.15s;"
-       onmouseover="this.style.background='#1D4ED8'" onmouseout="this.style.background='#2563EB'">
-      📊 Registro Presenze
+    <a href="#"
+       title="Link cartella Drive in arrivo"
+       style="display:inline-flex;align-items:center;gap:0.4rem;background:#F3F4F6;color:#6B7280;font-family:'Outfit',sans-serif;font-size:0.82rem;font-weight:600;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;white-space:nowrap;border:1.5px solid #E5E7EB;transition:background 0.15s,color 0.15s;"
+       onmouseover="this.style.background='#E5E7EB';this.style.color='#374151'" onmouseout="this.style.background='#F3F4F6';this.style.color='#6B7280'">
+      📂 Archivio
     </a>
     <div class="header-meta">Oratorio Estivo · Gestione</div>
   </div>
 </header>
-
+ 
 <!-- MAIN APP -->
 <div class="app-layout">
-
+ 
   <!-- FILTERS -->
   <div class="filters-bar" id="filters-bar">
     <div class="filter-group">
@@ -479,31 +431,31 @@
       <button class="btn-go" onclick="applyFilter()">→ Vai</button>
     </div>
   </div>
-
-  <!-- ARCHIVIO ANNI PRECEDENTI -->
+ 
+  <!-- REGISTRO PRESENZE -->
   <div style="margin-bottom:1.5rem;">
-    <a href="#"
-       style="display:flex;align-items:center;gap:0.9rem;background:#ffffff;border:1.5px solid #E5E7EB;border-radius:12px;padding:1rem 1.3rem;text-decoration:none;box-shadow:0 1px 3px rgba(0,0,0,0.07),0 4px 16px rgba(0,0,0,0.06);transition:box-shadow 0.18s,border-color 0.18s;"
-       onmouseover="this.style.borderColor='#BFDBFE';this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1),0 8px 32px rgba(0,0,0,0.08)'"
-       onmouseout="this.style.borderColor='#E5E7EB';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.07),0 4px 16px rgba(0,0,0,0.06)'"
-       title="Cartella Drive anni precedenti (link in arrivo)">
-      <span style="font-size:1.6rem;line-height:1;">📂</span>
-      <div>
-        <div style="font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#6B7280;margin-bottom:0.15rem;">Archivio</div>
-        <div style="font-size:0.97rem;font-weight:700;color:#111827;letter-spacing:-0.01em;">Anni Precedenti</div>
+    <a href="https://docs.google.com/spreadsheets/d/1u5DsxW7XZ4N8wI3oYDGnqXiHbKsEKLYwjFxMsRT6qwo/edit?usp=sharing"
+       target="_blank" rel="noopener"
+       style="display:flex;align-items:center;gap:1.1rem;background:#2563EB;border:none;border-radius:12px;padding:1.2rem 1.6rem;text-decoration:none;box-shadow:0 4px 16px rgba(37,99,235,0.25),0 1px 4px rgba(37,99,235,0.15);transition:box-shadow 0.18s,background 0.15s,transform 0.15s;"
+       onmouseover="this.style.background='#1D4ED8';this.style.boxShadow='0 8px 28px rgba(37,99,235,0.35)';this.style.transform='translateY(-1px)'"
+       onmouseout="this.style.background='#2563EB';this.style.boxShadow='0 4px 16px rgba(37,99,235,0.25),0 1px 4px rgba(37,99,235,0.15)';this.style.transform='translateY(0)'">
+      <span style="font-size:2rem;line-height:1;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.15));">📊</span>
+      <div style="flex:1;">
+        <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:0.2rem;">Apri Foglio Google</div>
+        <div style="font-size:1.05rem;font-weight:800;color:#ffffff;letter-spacing:-0.02em;">Registro Presenze</div>
       </div>
-      <span style="margin-left:auto;color:#9CA3AF;font-size:1rem;">→</span>
+      <span style="color:rgba(255,255,255,0.6);font-size:1.1rem;">↗</span>
     </a>
   </div>
-
+ 
   <!-- DETAIL PANEL (hidden initially) -->
   <div id="detail-area"></div>
-
+ 
   <!-- CALENDAR -->
   <div id="calendar-area"></div>
-
+ 
 </div>
-
+ 
 <script>
 // =====================================================
 // DATABASE
@@ -523,8 +475,8 @@ const DATABASE_ORATORIO = [
       { n: 1, parola: "ESEMPIO", cast: ["Massimiliano", "Agnese", "Angela", "Bernardo"], link_scenetta: "https://docs.google.com/document/d/1-RZi9Ko876wjyzKeelS1-HnOauCZUjnVSU6llDYGHgA/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.4gwjh98vw0a1" },
       { n: 2, parola: "FRATELLO", cast: ["Massimiliano", "Agnese", "Angela", "Frate Leone"], link_scenetta: "https://docs.google.com/document/d/1-XVpQMLm4XDWYi38ZxmT3W9H4CTA_JBpNWMRRbjze-A/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.u7mft627w1cg" },
       { n: 3, parola: "CORAGGIO", cast: ["Massimiliano", "Agnese", "Angela", "Chiara"], link_scenetta: "https://docs.google.com/document/d/11tYl5zoZVsaTBnddqJ0nqP8vOFrwbihwkz-KttnuAQA/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.2944am1arkk6" },
-      { n: 4, parola: "MISERICORDIA", cast: ["Massimiliano", "Agnese", "Angela", "Cantastorie"], link_scenetta: "https://docs.google.com/document/d/12vWnrqOAtAWKGQHHZ07szYolW4PdQodjPd70pe45-co/edit?usp=drivesdk", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.sk95dvagtesr" },
-      { n: 5, parola: "POVERTÀ / UMILTÀ", cast: ["Massimiliano", "Agnese", "Angela", "Cantastorie"], link_scenetta: "https://docs.google.com/document/d/13Hj3bTeqaJDWcOYEaIVGr1nduKVmRX5LWPwCCjynIZs/edit?usp=drivesdk", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.ezf7asg7k09a" }
+      { n: 4, parola: "MISERICORDIA", cast: ["Massimiliano", "Agnese", "Angela", "Cantastorie"], link_scenetta: "#", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.sk95dvagtesr" },
+      { n: 5, parola: "POVERTÀ / UMILTÀ", cast: ["Massimiliano", "Agnese", "Angela", "Cantastorie"], link_scenetta: "#", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.ezf7asg7k09a" }
     ]
   },
   {
@@ -541,21 +493,19 @@ const DATABASE_ORATORIO = [
     settimana: 4, titolo: "Fatica / Lode",
     giorni: [
       { n: 1, parola: "SOPPORTARE", cast: ["Nonni", "Nipoti"], link_scenetta: "https://docs.google.com/document/d/1GtDOP_hn0NcvnczE_fSq6s6R6YhE1HmruZ5wCZ-GzLc/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.rvhnj2k1algf" },
-      { n: 2, parola: "TENTAZIONE", cast: ["Nonni", "Nipoti"], link_scenetta: "https://docs.google.com/document/d/1QOzWn0L29-3MpG0aaClOqC--c_hqAsYCBGBxEMKDvus/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.w45y3bvb924e" },
+      { n: 2, parola: "TENTAZIONE", cast: ["Nonni", "Nipoti"], link_scenetta: "https://docs.google.com/document/d/1GtDOP_hn0NcvnczE_fSq6s6R6YhE1HmruZ5wCZ-GzLc/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.w45y3bvb924e" },
       { n: 3, parola: "STARE", cast: ["Nonni", "Nipoti"], link_scenetta: "https://docs.google.com/document/d/1GL5uklpo88IvhLpU1Q8cvgxdOlf3OhmHyyPS3Meq61U/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.bjqv05oyvgrh" },
       { n: 4, parola: "BENEDIRE", cast: ["Nonni", "Nipoti"], link_scenetta: "https://docs.google.com/document/d/1r_T003kqbuWYItVI6iA5EZIqAdlbcNnkPhYaeuYwrrU/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.b9nrvhr7df4" },
       { n: 5, parola: "PASSAGGIO / AMORE", cast: ["Nonni", "Nipoti", "Cantastorie"], link_scenetta: "https://docs.google.com/document/d/1hm_qFP9u8B9foerR-i7-m2QOMziM3Q53YQPLfbQ__0U/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.jo8y0ndlc17x" }
     ]
   }
 ];
-
+ 
 // =====================================================
 // STATE
 // =====================================================
 let activeWeekNum = null;
 let activeDayNum = null;
-let actorNames = {}; // [settimana][giorno][personaggio]
-
 // =====================================================
 // INIT
 // =====================================================
@@ -563,7 +513,7 @@ document.addEventListener('DOMContentLoaded', () => {
   buildSelects();
   renderCalendar();
 });
-
+ 
 function buildSelects() {
   const selW = document.getElementById('sel-week');
   DATABASE_ORATORIO.forEach(s => {
@@ -586,7 +536,7 @@ function buildSelects() {
     });
   });
 }
-
+ 
 function applyFilter() {
   const wk = Number(document.getElementById('sel-week').value);
   const dy = Number(document.getElementById('sel-day').value);
@@ -597,31 +547,31 @@ function applyFilter() {
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
-
+ 
 // =====================================================
 // CALENDAR
 // =====================================================
 const WEEK_COLORS = ['acc-1', 'acc-2', 'acc-3', 'acc-4'];
-
+ 
 function renderCalendar() {
   const area = document.getElementById('calendar-area');
   area.innerHTML = '';
-
+ 
   DATABASE_ORATORIO.forEach((week, wi) => {
     const wb = document.createElement('div');
     wb.className = 'week-block';
     wb.id = `week-${week.settimana}`;
-
+ 
     wb.innerHTML = `
       <div class="week-label">
         <span class="week-pill">Settimana ${week.settimana}</span>
         <span class="week-title-text">${week.titolo}</span>
       </div>
     `;
-
+ 
     const grid = document.createElement('div');
     grid.className = 'days-grid';
-
+ 
     week.giorni.forEach((giorno, gi) => {
       const card = document.createElement('div');
       card.className = 'day-card';
@@ -636,12 +586,12 @@ function renderCalendar() {
       card.addEventListener('click', () => selectDay(week.settimana, giorno.n));
       grid.appendChild(card);
     });
-
+ 
     wb.appendChild(grid);
     area.appendChild(wb);
   });
 }
-
+ 
 // =====================================================
 // SELECT + RENDER DETAIL
 // =====================================================
@@ -653,30 +603,30 @@ function selectDay(weekNum, dayNum) {
   }
   activeWeekNum = weekNum;
   activeDayNum = dayNum;
-
+ 
   const card = document.getElementById(`card-${weekNum}-${dayNum}`);
   if (card) card.classList.add('active');
-
+ 
   renderDetail(weekNum, dayNum);
-
+ 
   setTimeout(() => {
     document.getElementById('detail-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 60);
 }
-
+ 
 function renderDetail(weekNum, dayNum) {
   const week = DATABASE_ORATORIO.find(s => s.settimana === weekNum);
   const giorno = week?.giorni.find(g => g.n === dayNum);
   if (!giorno) return;
-
+ 
   const wi = weekNum - 1;
-
+ 
   const area = document.getElementById('detail-area');
   area.innerHTML = '';
-
+ 
   const panel = document.createElement('div');
   panel.className = 'detail-panel';
-
+ 
   panel.innerHTML = `
     <div class="detail-header">
       <div>
@@ -690,13 +640,12 @@ function renderDetail(weekNum, dayNum) {
     <div class="detail-body">
       ${renderScenetteSection(giorno)}
       ${renderCastSection(giorno)}
-      ${renderActorsSection(week, giorno)}
     </div>
   `;
-
+ 
   area.appendChild(panel);
 }
-
+ 
 function renderScenetteSection(giorno) {
   function makeBtn(href, cls, icon, label) {
     if (href === '#') {
@@ -708,7 +657,7 @@ function renderScenetteSection(giorno) {
       ${icon} ${label}
     </a>`;
   }
-
+ 
   return `
     <div class="detail-section">
       <div class="section-title">
@@ -729,7 +678,7 @@ function renderScenetteSection(giorno) {
     </div>
   `;
 }
-
+ 
 function renderCastSection(giorno) {
   const items = giorno.cast.map(c =>
     `<li class="cast-item"><span class="cast-dot"></span>${c}</li>`
@@ -744,48 +693,7 @@ function renderCastSection(giorno) {
     </div>
   `;
 }
-
-function renderActorsSection(week, giorno) {
-  if (!actorNames[week.settimana]) actorNames[week.settimana] = {};
-  if (!actorNames[week.settimana][giorno.n]) actorNames[week.settimana][giorno.n] = {};
-
-  const rows = giorno.cast.map(p => {
-    const stored = actorNames[week.settimana][giorno.n][p] || '';
-    const id = `ainp-${week.settimana}-${giorno.n}-${p.replace(/[^a-zA-Z0-9]/g,'_')}`;
-    return `<tr>
-      <td class="char-name">${p}</td>
-      <td><input type="text" class="actor-input" id="${id}"
-        value="${stored}"
-        placeholder="Nome ragazzo/a…"
-        data-w="${week.settimana}" data-d="${giorno.n}" data-p="${p.replace(/"/g,'&quot;')}"
-        oninput="saveActor(this)"
-      /></td>
-    </tr>`;
-  }).join('');
-
-  return `
-    <div class="detail-section actors-full">
-      <div class="section-title">
-        <span class="section-icon" style="background:#F0FDF4">📝</span>
-        Assegnazione Attori
-      </div>
-      <table class="actors-table">
-        <thead><tr><th>Personaggio</th><th>Ragazzo / Ragazza</th></tr></thead>
-        <tbody>${rows}</tbody>
-      </table>
-    </div>
-  `;
-}
-
-function saveActor(input) {
-  const w = Number(input.dataset.w);
-  const d = Number(input.dataset.d);
-  const p = input.dataset.p;
-  if (!actorNames[w]) actorNames[w] = {};
-  if (!actorNames[w][d]) actorNames[w][d] = {};
-  actorNames[w][d][p] = input.value;
-}
-
+ 
 // =====================================================
 // TOAST
 // =====================================================
