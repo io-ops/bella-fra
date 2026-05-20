@@ -31,16 +31,16 @@
     --shadow: 0 1px 3px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.06);
     --shadow-hover: 0 4px 12px rgba(0,0,0,0.1), 0 8px 32px rgba(0,0,0,0.08);
   }
- 
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
- 
+
   body {
     font-family: 'Outfit', sans-serif;
     background: var(--bg);
     color: var(--text);
     min-height: 100vh;
   }
- 
+
   /* ---- HEADER ---- */
   .site-header {
     background: var(--surface);
@@ -74,14 +74,14 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
   }
- 
+
   /* ---- LAYOUT ---- */
   .app-layout {
     max-width: 1100px;
     margin: 0 auto;
     padding: 2rem 1.5rem 4rem;
   }
- 
+
   /* ---- FILTERS ---- */
   .filters-bar {
     display: flex;
@@ -113,7 +113,7 @@
     transition: border-color 0.15s, box-shadow 0.15s;
   }
   .filter-select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.12); }
- 
+
   .btn-go {
     background: var(--accent);
     color: white;
@@ -128,7 +128,7 @@
     white-space: nowrap;
   }
   .btn-go:hover { background: #1D4ED8; transform: translateY(-1px); }
- 
+
   /* ---- WEEK SECTION ---- */
   .week-block { margin-bottom: 2rem; }
   .week-label {
@@ -152,14 +152,14 @@
     font-weight: 500;
     color: var(--text-muted);
   }
- 
+
   /* ---- DAY CARDS GRID ---- */
   .days-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 0.75rem;
   }
- 
+
   .day-card {
     background: var(--surface);
     border: 1.5px solid var(--border);
@@ -186,14 +186,14 @@
     background: var(--accent-light);
   }
   .day-card.active .day-number { color: var(--accent); }
- 
+
   .day-card-accent-bar {
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 3px;
     border-radius: var(--radius) var(--radius) 0 0;
   }
- 
+
   .day-number {
     font-size: 0.65rem;
     font-weight: 700;
@@ -215,7 +215,7 @@
     font-weight: 500;
     color: var(--text-muted);
   }
- 
+
   /* ---- DETAIL PANEL ---- */
   .detail-panel {
     background: var(--surface);
@@ -230,7 +230,7 @@
     from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
   }
- 
+
   .detail-header {
     padding: 1.6rem 1.8rem;
     border-bottom: 1px solid var(--border);
@@ -266,7 +266,7 @@
     color: var(--text-muted);
     margin-top: 0.35rem;
   }
- 
+
   .detail-body {
     padding: 1.5rem 1.8rem;
     display: grid;
@@ -274,7 +274,7 @@
     grid-template-columns: 1fr 1fr;
   }
   @media(max-width: 640px) { .detail-body { grid-template-columns: 1fr; } }
- 
+
   .detail-section { }
   .section-title {
     display: flex;
@@ -296,7 +296,7 @@
     font-size: 0.8rem;
     flex-shrink: 0;
   }
- 
+
   /* Action Buttons */
   .action-btn {
     display: inline-flex;
@@ -321,21 +321,21 @@
     border: 1.5px solid var(--accent-mid);
   }
   .btn-scene:hover { background: var(--accent); color: white; }
- 
+
   .btn-scenografia {
     background: var(--orange-light);
     color: var(--orange);
     border: 1.5px solid #FDE68A;
   }
   .btn-scenografia:hover { background: var(--orange); color: white; }
- 
+
   .btn-games {
     background: var(--green-light);
     color: var(--green);
     border: 1.5px solid #A7F3D0;
   }
   .btn-games:hover { background: var(--green); color: white; }
- 
+
   /* Cast list */
   .cast-list { list-style: none; }
   .cast-item {
@@ -355,7 +355,7 @@
     background: var(--accent);
     flex-shrink: 0;
   }
- 
+
   /* Toast */
   .toast {
     position: fixed;
@@ -376,17 +376,17 @@
   }
   @keyframes toastIn { from { opacity:0; transform: translateY(12px); } to { opacity:1; transform: translateY(0); } }
   @keyframes toastOut { to { opacity:0; transform: translateY(8px); } }
- 
+
   /* Week color accents */
-  .acc-1 { background: linear-gradient(90deg, #2563EB, #7C3AED); }
+  .acc-1 { background: linear-gradient(90deg, #D97706, #DC2626); }
   .acc-2 { background: linear-gradient(90deg, #059669, #0891B2); }
-  .acc-3 { background: linear-gradient(90deg, #D97706, #DC2626); }
+  .acc-3 { background: linear-gradient(90deg, #2563EB, #7C3AED); }
   .acc-4 { background: linear-gradient(90deg, #7C3AED, #DB2777); }
- 
+
   .sec-icon-1 { background: var(--accent-light); }
   .sec-icon-2 { background: var(--purple-light); }
   .sec-icon-3 { background: var(--green-light); }
- 
+
   @media(max-width: 500px) {
     .days-grid { grid-template-columns: repeat(2, 1fr); }
     .filters-bar { flex-direction: column; align-items: stretch; }
@@ -395,7 +395,7 @@
 </style>
 </head>
 <body>
- 
+
 <!-- HEADER -->
 <header class="site-header">
   <div class="logo">BELLA <span>FRA!</span></div>
@@ -409,10 +409,10 @@
     <div class="header-meta">Oratorio Estivo · Gestione</div>
   </div>
 </header>
- 
+
 <!-- MAIN APP -->
 <div class="app-layout">
- 
+
   <!-- FILTERS -->
   <div class="filters-bar" id="filters-bar">
     <div class="filter-group">
@@ -431,7 +431,7 @@
       <button class="btn-go" onclick="applyFilter()">→ Vai</button>
     </div>
   </div>
- 
+
   <!-- REGISTRO PRESENZE -->
   <div style="margin-bottom:1.5rem;">
     <a href="https://docs.google.com/spreadsheets/d/1u5DsxW7XZ4N8wI3oYDGnqXiHbKsEKLYwjFxMsRT6qwo/edit?usp=sharing"
@@ -447,15 +447,15 @@
       <span style="color:rgba(255,255,255,0.6);font-size:1.1rem;">↗</span>
     </a>
   </div>
- 
+
   <!-- DETAIL PANEL (hidden initially) -->
   <div id="detail-area"></div>
- 
+
   <!-- CALENDAR -->
   <div id="calendar-area"></div>
- 
+
 </div>
- 
+
 <script>
 // =====================================================
 // DATABASE
@@ -464,17 +464,17 @@ const DATABASE_ORATORIO = [
   {
     settimana: 1, titolo: "Conversione",
     giorni: [
-      { n: 1, parola: "CHIAMATA", cast: ["Francesco", "Massimiliano", "Agnese"], link_scenetta: "https://docs.google.com/document/d/1jYbl7Fq3EhqpPi1xK2zT2iQMuNjreMbisqItf4UhfDg/edit?usp=sharing", link_scenografia: "https://drive.google.com/file/d/13ohilDDzJf8h8owNqL8G6n9l1zcRheLm/view?usp=sharing", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.wl091jqm5gj3" },
-      { n: 2, parola: "RESTITUZIONE", cast: ["Francesco", "Massimiliano", "Angela"], link_scenetta: "https://docs.google.com/document/d/1N3FwP-AT_d213oz5uxL2BB0peckFEbecq9Zd0HEuTPo/edit?usp=sharing", link_scenografia: "https://drive.google.com/file/d/1XIW8ZybVHv6-DF__4-hou_GDnsFGBXsj/view?usp=drive_link", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.doc1cw74610x" },
-      { n: 3, parola: "SGUARDO", cast: ["Francesco", "Massimiliano", "Angela", "Uomo nel vicolo"], link_scenetta: "https://docs.google.com/document/d/1Z2av5wC2qVI-GY6g-CLCG5aYSSh0bfHHCxpfMjKuuvc/edit?usp=sharing", link_scenografia: "https://drive.google.com/file/d/1J_rih1kJVvISBkDaNRpE2CPKRIi9OQvd/view?usp=drive_link", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.4hniegnxbuz0" }
+      { n: 1, parola: "CHIAMATA", cast: ["Francesco", "Massimiliano", "Agnese"], link_scenetta: "https://docs.google.com/document/d/1jYbl7Fq3EhqpPi1xK2zT2iQMuNjreMbisqItf4UhfDg/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.wl091jqm5gj3" },
+      { n: 2, parola: "RESTITUZIONE", cast: ["Francesco", "Massimiliano", "Agnese", "Angela"], link_scenetta: "https://docs.google.com/document/d/1N3FwP-AT_d213oz5uxL2BB0peckFEbecq9Zd0HEuTPo/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.doc1cw74610x" },
+      { n: 3, parola: "SGUARDO", cast: ["Francesco", "Massimiliano", "Agnese", "Angela", "Uomo nel vicolo"], link_scenetta: "https://docs.google.com/document/d/1Z2av5wC2qVI-GY6g-CLCG5aYSSh0bfHHCxpfMjKuuvc/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.4hniegnxbuz0" }
     ]
   },
   {
     settimana: 2, titolo: "Fraternità",
     giorni: [
-      { n: 1, parola: "ESEMPIO", cast: ["Massimiliano", "Agnese", "Angela", "Bernardo"], link_scenetta: "https://docs.google.com/document/d/1-RZi9Ko876wjyzKeelS1-HnOauCZUjnVSU6llDYGHgA/edit?usp=sharing", link_scenografia: "https://drive.google.com/file/d/1ErQ2zR1lAbB9GgnUutws0kel_nT-tDHz/view?usp=drive_link", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.4gwjh98vw0a1" },
-      { n: 2, parola: "FRATELLO", cast: ["Massimiliano", "Agnese", "Angela", "Frate Leone"], link_scenetta: "https://docs.google.com/document/d/1-XVpQMLm4XDWYi38ZxmT3W9H4CTA_JBpNWMRRbjze-A/edit?usp=sharing", link_scenografia: "https://drive.google.com/file/d/18rVP2VX9ivYF6X_rkCxVNC41utLpxZWK/view?usp=drive_link", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.u7mft627w1cg" },
-      { n: 3, parola: "CORAGGIO", cast: ["Massimiliano", "Agnese", "Angela", "Chiara"], link_scenetta: "https://docs.google.com/document/d/11tYl5zoZVsaTBnddqJ0nqP8vOFrwbihwkz-KttnuAQA/edit?usp=sharing", link_scenografia: "https://drive.google.com/file/d/1cNk7aJDaa9_ktCeQmfTVuKMAQoXip79N/view?usp=drive_link", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.2944am1arkk6" },
+      { n: 1, parola: "ESEMPIO", cast: ["Massimiliano", "Agnese", "Angela", "Bernardo"], link_scenetta: "https://docs.google.com/document/d/1-RZi9Ko876wjyzKeelS1-HnOauCZUjnVSU6llDYGHgA/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.4gwjh98vw0a1" },
+      { n: 2, parola: "FRATELLO", cast: ["Massimiliano", "Agnese", "Angela", "Frate Leone"], link_scenetta: "https://docs.google.com/document/d/1-XVpQMLm4XDWYi38ZxmT3W9H4CTA_JBpNWMRRbjze-A/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.u7mft627w1cg" },
+      { n: 3, parola: "CORAGGIO", cast: ["Massimiliano", "Agnese", "Angela", "Chiara"], link_scenetta: "https://docs.google.com/document/d/11tYl5zoZVsaTBnddqJ0nqP8vOFrwbihwkz-KttnuAQA/edit?usp=sharing", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.2944am1arkk6" },
       { n: 4, parola: "MISERICORDIA", cast: ["Massimiliano", "Agnese", "Angela", "Cantastorie"], link_scenetta: "#", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.sk95dvagtesr" },
       { n: 5, parola: "POVERTÀ / UMILTÀ", cast: ["Massimiliano", "Agnese", "Angela", "Cantastorie"], link_scenetta: "#", link_scenografia: "#", link_giochi: "https://docs.google.com/document/d/1HQpMf0SPMUZ39HNPecbHvGy6zDbc_sRtoNZlAaJLpw8/edit?tab=t.0#bookmark=id.ezf7asg7k09a" }
     ]
@@ -500,7 +500,7 @@ const DATABASE_ORATORIO = [
     ]
   }
 ];
- 
+
 // =====================================================
 // STATE
 // =====================================================
@@ -513,7 +513,7 @@ document.addEventListener('DOMContentLoaded', () => {
   buildSelects();
   renderCalendar();
 });
- 
+
 function buildSelects() {
   const selW = document.getElementById('sel-week');
   DATABASE_ORATORIO.forEach(s => {
@@ -536,7 +536,7 @@ function buildSelects() {
     });
   });
 }
- 
+
 function applyFilter() {
   const wk = Number(document.getElementById('sel-week').value);
   const dy = Number(document.getElementById('sel-day').value);
@@ -547,31 +547,31 @@ function applyFilter() {
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
- 
+
 // =====================================================
 // CALENDAR
 // =====================================================
 const WEEK_COLORS = ['acc-1', 'acc-2', 'acc-3', 'acc-4'];
- 
+
 function renderCalendar() {
   const area = document.getElementById('calendar-area');
   area.innerHTML = '';
- 
+
   DATABASE_ORATORIO.forEach((week, wi) => {
     const wb = document.createElement('div');
     wb.className = 'week-block';
     wb.id = `week-${week.settimana}`;
- 
+
     wb.innerHTML = `
       <div class="week-label">
         <span class="week-pill">Settimana ${week.settimana}</span>
         <span class="week-title-text">${week.titolo}</span>
       </div>
     `;
- 
+
     const grid = document.createElement('div');
     grid.className = 'days-grid';
- 
+
     week.giorni.forEach((giorno, gi) => {
       const card = document.createElement('div');
       card.className = 'day-card';
@@ -586,12 +586,12 @@ function renderCalendar() {
       card.addEventListener('click', () => selectDay(week.settimana, giorno.n));
       grid.appendChild(card);
     });
- 
+
     wb.appendChild(grid);
     area.appendChild(wb);
   });
 }
- 
+
 // =====================================================
 // SELECT + RENDER DETAIL
 // =====================================================
@@ -603,30 +603,30 @@ function selectDay(weekNum, dayNum) {
   }
   activeWeekNum = weekNum;
   activeDayNum = dayNum;
- 
+
   const card = document.getElementById(`card-${weekNum}-${dayNum}`);
   if (card) card.classList.add('active');
- 
+
   renderDetail(weekNum, dayNum);
- 
+
   setTimeout(() => {
     document.getElementById('detail-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 60);
 }
- 
+
 function renderDetail(weekNum, dayNum) {
   const week = DATABASE_ORATORIO.find(s => s.settimana === weekNum);
   const giorno = week?.giorni.find(g => g.n === dayNum);
   if (!giorno) return;
- 
+
   const wi = weekNum - 1;
- 
+
   const area = document.getElementById('detail-area');
   area.innerHTML = '';
- 
+
   const panel = document.createElement('div');
   panel.className = 'detail-panel';
- 
+
   panel.innerHTML = `
     <div class="detail-header">
       <div>
@@ -642,10 +642,10 @@ function renderDetail(weekNum, dayNum) {
       ${renderCastSection(giorno)}
     </div>
   `;
- 
+
   area.appendChild(panel);
 }
- 
+
 function renderScenetteSection(giorno) {
   function makeBtn(href, cls, icon, label) {
     if (href === '#') {
@@ -657,7 +657,7 @@ function renderScenetteSection(giorno) {
       ${icon} ${label}
     </a>`;
   }
- 
+
   return `
     <div class="detail-section">
       <div class="section-title">
@@ -678,7 +678,7 @@ function renderScenetteSection(giorno) {
     </div>
   `;
 }
- 
+
 function renderCastSection(giorno) {
   const items = giorno.cast.map(c =>
     `<li class="cast-item"><span class="cast-dot"></span>${c}</li>`
@@ -693,7 +693,7 @@ function renderCastSection(giorno) {
     </div>
   `;
 }
- 
+
 // =====================================================
 // TOAST
 // =====================================================
