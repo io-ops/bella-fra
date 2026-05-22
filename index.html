@@ -462,6 +462,58 @@
     </a>
   </div>
 
+  <!-- CANZONI -->
+  <div id="canzoni-section" style="margin-bottom:1.5rem;">
+    <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);box-shadow:0 4px 16px rgba(124,58,237,0.15),0 1px 4px rgba(124,58,237,0.1);overflow:hidden;">
+
+      <!-- Titolo principale collassabile — stile Registro Presenze -->
+      <div onclick="const b=document.getElementById('canzoni-main-body');const a=document.getElementById('canzoni-main-arrow');const open=b.style.display!=='none';b.style.display=open?'none':'block';a.textContent=open?'▸':'▾';"
+        style="display:flex;align-items:center;gap:1.1rem;background:#7C3AED;border:none;border-radius:var(--radius) var(--radius) 0 0;padding:1.2rem 1.6rem;cursor:pointer;transition:background 0.15s;"
+        onmouseover="this.style.background='#6D28D9'" onmouseout="this.style.background='#7C3AED'">
+        <span style="font-size:2rem;line-height:1;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.15));">🎵</span>
+        <div style="flex:1;">
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:0.2rem;">Risorse Audio</div>
+          <div style="font-size:1.05rem;font-weight:800;color:#ffffff;letter-spacing:-0.02em;">Canzoniere & Basi dell'Oratorio</div>
+        </div>
+        <span id="canzoni-main-arrow" style="color:rgba(255,255,255,0.7);font-size:1rem;font-weight:700;">▸</span>
+      </div>
+
+      <!-- Corpo collassabile che contiene le due sottosezioni -->
+      <div id="canzoni-main-body" style="display:none;">
+
+        <!-- Sottosezione: Quest'anno -->
+              <div style="padding:1rem 1.6rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:0.75rem;cursor:pointer;background:#FAFAFA;" onclick="const b=document.getElementById('canzoni-body-2026');const a=document.getElementById('canzoni-arrow-2026');const open=b.style.display!=='none';b.style.display=open?'none':'grid';a.textContent=open?'▸':'▾';">
+        <div style="flex:1;">
+          <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:0.1rem;">Quest&#39;anno</div>
+          <div style="font-size:0.92rem;font-weight:700;color:var(--text);">Canzoni 2026 – Bella Fra!</div>
+        </div>
+        <span id="canzoni-arrow-2026" style="font-size:0.85rem;color:var(--text-muted);font-weight:700;">▾</span>
+      </div>
+      <div id="canzoni-body-2026" style="padding:1rem 1.6rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.75rem;">
+          <button onclick="showToast('⏳ Contenuto in arrivo!')" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:600;padding:0.65rem 1rem;border-radius:var(--radius-sm);border:1.5px solid #DDD6FE;background:var(--purple-light);color:var(--purple);cursor:pointer;transition:all 0.15s;justify-content:center;" onmouseover="this.style.background='#7C3AED';this.style.color='white'" onmouseout="this.style.background='var(--purple-light)';this.style.color='var(--purple)'">🎤 Inno Oratorio 2026</button>
+          <button onclick="showToast('⏳ Contenuto in arrivo!')" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:600;padding:0.65rem 1rem;border-radius:var(--radius-sm);border:1.5px solid #DDD6FE;background:var(--purple-light);color:var(--purple);cursor:pointer;transition:all 0.15s;justify-content:center;" onmouseover="this.style.background='#7C3AED';this.style.color='white'" onmouseout="this.style.background='var(--purple-light)';this.style.color='var(--purple)'">🎵 Canzone 2</button>
+          <button onclick="showToast('⏳ Contenuto in arrivo!')" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:600;padding:0.65rem 1rem;border-radius:var(--radius-sm);border:1.5px solid #DDD6FE;background:var(--purple-light);color:var(--purple);cursor:pointer;transition:all 0.15s;justify-content:center;" onmouseover="this.style.background='#7C3AED';this.style.color='white'" onmouseout="this.style.background='var(--purple-light)';this.style.color='var(--purple)'">🎵 Canzone 3</button>
+          <button onclick="showToast('⏳ Contenuto in arrivo!')" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:600;padding:0.65rem 1rem;border-radius:var(--radius-sm);border:1.5px solid #DDD6FE;background:var(--purple-light);color:var(--purple);cursor:pointer;transition:all 0.15s;justify-content:center;" onmouseover="this.style.background='#7C3AED';this.style.color='white'" onmouseout="this.style.background='var(--purple-light)';this.style.color='var(--purple)'">🎵 Canzone 4</button>
+        </div>
+
+        <!-- Sottosezione: Anni precedenti -->
+              <div style="padding:1rem 1.6rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:0.75rem;cursor:pointer;background:#FAFAFA;" onclick="const b=document.getElementById('canzoni-body-prev');const a=document.getElementById('canzoni-arrow-prev');const open=b.style.display!=='none';b.style.display=open?'none':'grid';a.textContent=open?'▸':'▾';">
+        <div style="flex:1;">
+          <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:0.1rem;">Archivio</div>
+          <div style="font-size:0.92rem;font-weight:700;color:var(--text);">Canzoni Anni Precedenti</div>
+        </div>
+        <span id="canzoni-arrow-prev" style="font-size:0.85rem;color:var(--text-muted);font-weight:700;">▸</span>
+      </div>
+      <div id="canzoni-body-prev" style="padding:1rem 1.6rem;display:none;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.75rem;">
+          <button onclick="showToast('⏳ Contenuto in arrivo!')" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:600;padding:0.65rem 1rem;border-radius:var(--radius-sm);border:1.5px solid #E5E7EB;background:#F9FAFB;color:var(--text-muted);cursor:pointer;transition:all 0.15s;justify-content:center;" onmouseover="this.style.background='#E5E7EB';this.style.color='var(--text)'" onmouseout="this.style.background='#F9FAFB';this.style.color='var(--text-muted)'">🎵 Canzone Anno Prec. 1</button>
+          <button onclick="showToast('⏳ Contenuto in arrivo!')" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:600;padding:0.65rem 1rem;border-radius:var(--radius-sm);border:1.5px solid #E5E7EB;background:#F9FAFB;color:var(--text-muted);cursor:pointer;transition:all 0.15s;justify-content:center;" onmouseover="this.style.background='#E5E7EB';this.style.color='var(--text)'" onmouseout="this.style.background='#F9FAFB';this.style.color='var(--text-muted)'">🎵 Canzone Anno Prec. 2</button>
+          <button onclick="showToast('⏳ Contenuto in arrivo!')" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:'Outfit',sans-serif;font-size:0.85rem;font-weight:600;padding:0.65rem 1rem;border-radius:var(--radius-sm);border:1.5px solid #E5E7EB;background:#F9FAFB;color:var(--text-muted);cursor:pointer;transition:all 0.15s;justify-content:center;" onmouseover="this.style.background='#E5E7EB';this.style.color='var(--text)'" onmouseout="this.style.background='#F9FAFB';this.style.color='var(--text-muted)'">🎵 Canzone Anno Prec. 3</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <!-- DETAIL PANEL (hidden initially) -->
   <div id="detail-area"></div>
 
@@ -647,6 +699,13 @@ function renderDetail(weekNum, dayNum) {
         <div class="detail-keyword">${giorno.parola}</div>
         <div class="detail-day-info">Giorno ${giorno.n} · ${giorno.cast.length} personaggi in scena</div>
       </div>
+      <button onclick="document.getElementById('detail-area').innerHTML=''; document.getElementById('card-'+activeWeekNum+'-'+activeDayNum)?.classList.remove('active'); activeWeekNum=null; activeDayNum=null;"
+        title="Chiudi"
+        style="flex-shrink:0;width:32px;height:32px;border-radius:50%;border:1.5px solid var(--border);background:var(--bg);color:var(--text-muted);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.15s;line-height:1;"
+        onmouseover="this.style.background='#F3F4F6';this.style.color='var(--text)';this.style.borderColor='#D1D5DB'"
+        onmouseout="this.style.background='var(--bg)';this.style.color='var(--text-muted)';this.style.borderColor='var(--border)'">
+        ✕
+      </button>
     </div>
     <div class="detail-body">
       ${renderScenetteSection(giorno)}
