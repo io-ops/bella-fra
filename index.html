@@ -958,7 +958,7 @@ function renderCalendar() {
       card.id = `card-${week.settimana}-${giorno.n}`;
       card.style.animationDelay = `${(wi * 5 + gi) * 0.04}s`;
       
-      const isAttesa = week.settimana === 4 || giorno.cast_in_attesa;
+      const isAttesa = giorno.cast_in_attesa;
       const castBadgeHtml = isAttesa 
         ? `<div class="day-cast-badge" style="color:var(--orange); font-weight:700;">👤 ${giorno.cast.length} pers. <span style="font-size:0.65rem; padding: 0.1rem 0.3rem; background:rgba(217, 119, 6, 0.15); border-radius:10px;">⚠️ In attesa</span></div>`
         : `<div class="day-cast-badge">👤 ${giorno.cast.length} pers.</div>`;
@@ -1015,7 +1015,7 @@ function renderDetail(weekNum, dayNum) {
   const panel = document.createElement('div');
   panel.className = 'detail-panel';
 
-  const isAttesa = weekNum === 4 || giorno.cast_in_attesa;
+  const isAttesa = giorno.cast_in_attesa;
   const warningAlert = isAttesa ? `
     <div style="grid-column: 1 / -1; background: var(--orange-light); border: 1.5px solid rgba(217,119,6,0.3); color: var(--orange); padding: 0.8rem 1.2rem; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 500; display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem;">
       <span style="font-size:1.15rem;">⚠️</span>
